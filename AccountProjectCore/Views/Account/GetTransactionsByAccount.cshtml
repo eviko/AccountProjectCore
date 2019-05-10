@@ -1,0 +1,73 @@
+﻿@model AccountProjectCore.Models.Account
+
+
+@{
+	ViewData["Title"] = "GetTransactionsByAccount";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Transactions</h1>
+
+<p>
+	<a asp-controller="Transaction" asp-action="Create" asp-route-id="@Model.Id"> Create New Transaction</a>
+</p>
+<div>
+	<dl class="row">
+		<dt class="col-sm-2">
+			@Html.DisplayNameFor(model => model.AccountNumber)
+		</dt>
+		<dd class="col-sm-10">
+			@Html.DisplayFor(model => model.AccountNumber)
+		</dd>
+		<dt class="col-sm-2">
+			@Html.DisplayNameFor(model => model.Balance)
+		</dt>
+		<dd class="col-sm-10">
+			@Html.DisplayFor(model => model.Balance)
+		</dd>
+		<dt class="col-sm-2">
+			@Html.DisplayNameFor(model => model.Currency)
+		</dt>
+		<dd class="col-sm-10">
+			@Html.DisplayFor(model => model.Currency)
+		</dd>
+	</dl>
+</div>
+<table class="table">
+	<thead>
+		<tr>
+			<th>
+				Transaction Type
+			</th>
+			<th>
+				Transaction Charge Type
+			</th>
+			<th>
+				Ammount
+			</th>
+			<th>
+				Datetime
+			</th>
+			<th></th>
+		</tr>
+	</thead>
+	<tbody>
+		@foreach (var item in Model.Transactions)
+		{
+		<tr>
+			<td>
+				@Html.DisplayFor(modelItem => item.InTransactionType.Name)
+			</td>
+			<td>
+				@Html.DisplayFor(modelItem => item.InTransactionType.ChargeType)
+			</td>
+			<td>
+				@Html.DisplayFor(modelItem => item.Amount)
+			</td>
+			<td>
+				@Html.DisplayFor(modelItem => item.TransactionDatetime)
+			</td>
+		</tr>
+		}
+	</tbody>
+</table>

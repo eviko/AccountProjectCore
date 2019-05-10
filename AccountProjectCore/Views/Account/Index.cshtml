@@ -1,0 +1,64 @@
+﻿@model IEnumerable<AccountProjectCore.Models.Account>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Index</h1>
+
+
+<table class="table">
+    <thead>
+		<tr>
+			<th>
+				@Html.DisplayNameFor(model => model.AccountNumber)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.Balance)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.Currency.Code)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.InterestRate)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.OpeningDatetime)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.ClosingDatetime)
+			</th>
+			<th></th>
+		</tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+		<tr>
+			<td>
+				@Html.DisplayFor(modelItem => item.AccountNumber)
+			</td>
+			<td>
+				@Html.DisplayFor(modelItem => item.Balance)
+			</td>
+			<td>
+				@Html.DisplayFor(modelItem => item.Currency.Code)
+			</td>
+			<td>
+				@Html.DisplayFor(modelItem => item.InterestRate)
+			</td>
+			<td>
+				@Html.DisplayFor(modelItem => item.OpeningDatetime)
+			</td>
+			<td>
+				@Html.DisplayFor(modelItem => item.ClosingDatetime)
+			</td>
+			<td>
+				<a asp-action="GetAccountHoldersByAccount" asp-route-id="@item.Id">Holders</a> |
+				<a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+				<a asp-action="GetTransactionsByAccount" asp-route-id="@item.Id">Transactions</a>
+			</td>
+		</tr>
+}
+    </tbody>
+</table>
