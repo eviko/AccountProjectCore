@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Identity;
+using System;
 using System.Collections.Generic;
 
 namespace AccountProjectCore.Models
@@ -12,7 +13,6 @@ namespace AccountProjectCore.Models
         public Currency Currency { get; set; }    
         public DateTime OpeningDatetime { get; set; }
         public DateTime ClosingDatetime { get; set; }
-       // public StoreUser User { get; set; }
         public IList<AccountHolder> AccountAccountHolders { get; set; }
         public IList<Transaction> Transactions { get; set; }
         public Account()
@@ -22,4 +22,6 @@ namespace AccountProjectCore.Models
         }
 
     }
+
+
 }

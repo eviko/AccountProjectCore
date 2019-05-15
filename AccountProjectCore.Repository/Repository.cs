@@ -1,5 +1,6 @@
 ﻿using AccountProjectCore.EF;
 using AccountProjectCore.Models;
+using Microsoft.AspNetCore.Identity;
 using AccountProjectCore.Repository.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using System;

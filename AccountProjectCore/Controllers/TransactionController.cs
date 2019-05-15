@@ -4,11 +4,13 @@ using System.Linq;
 using System.Threading.Tasks;
 using AccountProjectCore.Models;
 using AccountProjectCore.Repository.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AccountProjectCore.Controllers
 {
+    [Authorize]
     public class TransactionController : Controller
     {
         ITransactionRepository _transactionRepository;

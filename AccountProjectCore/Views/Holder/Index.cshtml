@@ -1,0 +1,55 @@
+﻿@model AccountProjectCore.Models.Holder
+
+@{
+	ViewData["Title"] = "Index";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Index</h1>
+
+
+<table class="table">
+	<thead>
+		<tr>
+			<th>
+				Account Number
+			</th>
+			<th>
+				Balance
+			</th>
+			<th>
+				Currency
+			</th>
+			<th>
+				Opening Datetime
+			</th>
+
+			<th></th>
+		</tr>
+	</thead>
+	<tbody>
+		@foreach (var item in Model.AccountHolders)
+		{
+			<tr>
+				<td>
+					@Html.DisplayFor(modelItem => item.Account.AccountNumber)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.Account.Balance)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.Account.Currency.Code)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.Account.OpeningDatetime)
+				</td>
+
+				<td>
+					<a asp-action="GetAccountHoldersByAccount" asp-route-id="@item.Account.Id">Holders</a> |
+					<a asp-action="Details" asp-route-id="@item.Account.Id">Details</a> |
+					<a asp-action="GetTransactionsByAccount" asp-route-id="@item.Account.Id">Transactions</a>
+				</td>
+			</tr>
+		}
+	</tbody>
+</table>

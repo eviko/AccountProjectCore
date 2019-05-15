@@ -8,6 +8,6 @@ namespace AccountProjectCore.Repository.Interfaces
     public interface IHolderRepository : IRepository<Holder>
     {
         IEnumerable<AccountHolder> GetAccountsByAccountHolder(int holderId);
-
+        Holder GetHolderByLoggedUser(string loggedUser);
     }
 }

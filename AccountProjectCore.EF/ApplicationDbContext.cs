@@ -6,8 +6,7 @@ using Microsoft.EntityFrameworkCore.Design;
 
 namespace AccountProjectCore.EF
 {
-    public class ApplicationDbContext : DbContext
-
+    public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
 
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
@@ -20,6 +19,7 @@ namespace AccountProjectCore.EF
         public DbSet<Currency> Currencies { get; set; }
         public DbSet<Transaction> Transactions { get; set; }
         public DbSet<TransactionType> TransactionTypes { get; set; }
+        public DbSet<ApplicationUser> ApplicationUsers { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

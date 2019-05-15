@@ -1,8 +1,8 @@
 ﻿@model AccountProjectCore.Models.Account
 
 @{
-    ViewData["Title"] = "GetAccountHoldersByAccount";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+	ViewData["Title"] = "GetAccountHoldersByAccount";
+	Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 
@@ -37,10 +37,10 @@
 				</td>
 
 			</tr>
-		</dd>
+			</dd>
 		}
 	</tbody>
 </div>
 <div>
-    <a asp-action="Index">Back to List</a>
+	<a asp-controller="Holder"  asp-action="Index">Back to List</a>
 </div>

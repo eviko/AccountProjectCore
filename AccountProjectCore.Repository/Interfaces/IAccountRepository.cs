@@ -6,8 +6,8 @@ using System.Text;
 namespace AccountProjectCore.Repository.Interfaces
 {
     public interface IAccountRepository : IRepository<Account>
-    {
-       Account GetAccountWithHolders(int accountId);
-        Account GetAccountWithTransactions(int accountId);      
+    {        
+        Account GetAccountWithHolders(int accountId);
+        Account GetAccountWithTransactions(int accountId);
     }
 }

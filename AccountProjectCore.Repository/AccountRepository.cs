@@ -15,7 +15,7 @@ namespace AccountProjectCore.Repository
         public Account GetAccountWithHolders(int accountId)
         {
             return _context.Accounts.Include(h => h.AccountAccountHolders).ThenInclude(h => h.Holder).Where(x => x.Id == accountId).FirstOrDefault();
-        }
+        }     
 
         public Account GetAccountWithTransactions(int accountId)
         {
